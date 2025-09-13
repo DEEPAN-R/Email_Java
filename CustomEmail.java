@@ -1,4 +1,3 @@
-package Java_Advanced;
 
 import java.util.Properties;
 import javax.mail.*;
@@ -27,7 +26,9 @@ public class CustomEmail {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("massdeepan777@gmail.com"));
+
             message.setSubject("Sample Email with Text, HTML, and Image");
+
 
             Multipart multipart = new MimeMultipart();
 
@@ -44,9 +45,11 @@ public class CustomEmail {
             multipart.addBodyPart(htmlPart);
             multipart.addBodyPart(imagePart);
 
+
             message.setContent(multipart);
 
             Transport.send(message);
+
 
             System.out.println("Email sent successfully with text, HTML, and image!");
 
